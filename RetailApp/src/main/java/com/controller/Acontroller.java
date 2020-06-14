@@ -7,12 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class Acontroller {
 
-	@RequestMapping("Login")
-	public ModelAndView LoginScreen() {
-	ModelAndView mv=new ModelAndView();
-	mv.setViewName("Login");
-	return mv;
-	}
+
 	
 	@RequestMapping("CreateCustomer")
 	public ModelAndView CreateCustomer() {
@@ -94,12 +89,7 @@ public class Acontroller {
 	}
 	
 	
-	@RequestMapping("index")
-	public ModelAndView index() {
-	ModelAndView mv=new ModelAndView();
-	mv.setViewName("index");
-	return mv;
-	}
+
 	@RequestMapping("Withdraw")
 	public ModelAndView WithdrawScreen() {
 	ModelAndView mv=new ModelAndView();
