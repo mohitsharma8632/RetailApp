@@ -37,11 +37,31 @@ public class Acontroller {
 	
 	@RequestMapping("CustomerStatus")
 	public ModelAndView CustomerStatusScreen() {
-	ModelAndView mv=new ModelAndView();
-	mv.setViewName("CustomerStatus");
-	return mv;
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("CustomerStatus");
+		return mv;
 	}
 	
+	@RequestMapping("CustomerSearch")
+	public ModelAndView CustomerSearch() {
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("CustomerSearchForm");
+		return mv;
+	}
+	
+	@RequestMapping("MoneyDeposit")
+	public ModelAndView MoneyDepositForm() {
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("MoneyDepositForm");
+		return mv;
+	}
+	
+	@RequestMapping("MoneyWithdraw")
+	public ModelAndView MoneyWithdrawForm() {
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("WithdrawAmountForm");
+		return mv;
+	}
 	
 	@RequestMapping("CreateAccount")
 	public ModelAndView CreateAccountScreen() {
