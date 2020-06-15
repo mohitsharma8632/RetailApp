@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,70 +18,55 @@ import com.pojo.Account;
 import com.pojo.Customer;
 import com.pojo.Transaction;
 import com.pojo.UserEx;
-
+@Controller
 public class BController {
 
 	@RequestMapping("LoginAction")
-public ModelAndView LoginAction(UserEx u,HttpSession r) throws IOException {
-ModelAndView mv=new ModelAndView();
+public void LoginAction(UserEx u,HttpSession r,HttpServletResponse res) throws IOException {
 if(UserDao.ucheck(u)){
 	r.setAttribute("uname", u.getUname());
-	mv.addObject("msg", "Welcome "+u.getUname());
-	mv.setViewName("Home");
+	res.sendRedirect("Home?msg=welcome "+u.getUname());
 }
 else {
-		mv.addObject("msg", "wrong credentials");
-		mv.setViewName("");
+		res.sendRedirect("index?msg=wrong credentials");
 }
-return mv;
 	}
 
 	
 	@RequestMapping("CreateCustomerAction")
-public ModelAndView CreateCustomer(Customer c,HttpServletResponse r) throws IOException {
-		ModelAndView mv=new ModelAndView();
+public void CreateCustomer(Customer c,HttpServletResponse r) throws IOException {
 		int a=CustomerDao.create(c);
 		if(a!=0){
-			mv.addObject("msg", "Customer created with id "+a);
-			mv.setViewName("Home");
+			r.sendRedirect("Home?msg=Customer created with id "+a);
 		}
 		else {
-				mv.addObject("msg", "Customer creation failed");
-				mv.setViewName("CreateCustomer");
+				r.sendRedirect("CreateCustomer?msg=Customer creation failed");
 		}
-		return mv;
 }
 	
 	
 	
 @RequestMapping("UpdateCustomerAction")
-public ModelAndView UpdateCustomerAction(Customer c,HttpServletResponse r) throws IOException {
-	ModelAndView mv=new ModelAndView();
+public void UpdateCustomerAction(Customer c,HttpServletResponse r) throws IOException {
 	if(CustomerDao.update(c)){
-		mv.addObject("msg", "Customer with Customer id "+c.getCustomerid()+"was updated  with Name:"+c.getName()+",Age:"+c.getAge()+",Address:"+c.getAddress());
-		mv.setViewName("Home");
+		r.sendRedirect("Home?msg=Customer with Customer id "+c.getCustomerid()+"was updated  with Name:"+c.getName()+",Age:"+c.getAge()+",Address:"+c.getAddress());
 	}
 	else {
-			mv.addObject("msg", "Customer updation failed");
-			mv.setViewName("UpdateCustomer");
+			r.sendRedirect("UpdateCustomer?msg=Customer updation failed");
 	}
-	return mv;
 }
 
 
 
 @RequestMapping("DeleteCustomerAction")
-public ModelAndView DeleteCustomerAction(Customer c,HttpServletResponse r) throws IOException {
-	ModelAndView mv=new ModelAndView();
-	if(CustomerDao.delete(c)){
-		mv.addObject("msg", "Customer with Customer id  "+c.getCustomerid()+" was deleted");
-		mv.setViewName("Home");
+public void DeleteCustomerAction(Customer c,HttpServletResponse r) throws IOException {
+		if(CustomerDao.delete(c)){
+		r.sendRedirect("Home?msg=Customer with Customer id  "+c.getCustomerid()+" was deleted");
 	}
 	else {
-			mv.addObject("msg", "Customer deletion failed");
-			mv.setViewName("DeleteCustomer");
+			r.sendRedirect("DeleteCustomer?msg=Customer deletion failed");
 	}
-	return mv;
+	
 }
 
 
@@ -94,34 +80,26 @@ public void CustomerStatusAction(Customer c,HttpServletResponse r) throws IOExce
 
 
 @RequestMapping("CreateAccountAction")
-public ModelAndView CreateAccountAction(Account a,HttpServletResponse r) throws IOException {
-	ModelAndView mv=new ModelAndView();
+public void CreateAccountAction(Account a,HttpServletResponse r) throws IOException {
 	int aid=AccountDao.create(a);
 	if(aid!=0){
-		mv.addObject("msg", "Account created with id "+aid);
-		mv.setViewName("Home");
+		r.sendRedirect("Home?msg=Account created with id "+aid);
 	}
 	else {
-			mv.addObject("msg", "Account creation failed");
-			mv.setViewName("CreateAcccount");
+			r.sendRedirect("CreateAcccount?msg=Account creation failed");
 	}
-	return mv;
 }
 
 
 
 @RequestMapping("DeleteAccountAction")
-public ModelAndView DeleteAccountAction(Account a,HttpServletResponse r) throws IOException {
-	ModelAndView mv=new ModelAndView();
+public void DeleteAccountAction(Account a,HttpServletResponse r) throws IOException {	
 	if(AccountDao.delete(a)){
-		mv.addObject("msg", "Account with Account id  "+a.getAccountid()+" was deleted");
-		mv.setViewName("Home");
+		r.sendRedirect("Home?msg=Account with Account id  "+a.getAccountid()+" was deleted");
 	}
 	else {
-			mv.addObject("msg", "Account deletion failed");
-			mv.setViewName("DeleteAccount");
+			r.sendRedirect("DeleteAccount?msg=Account deletion failed");
 	}
-	return mv;
 }
 
 

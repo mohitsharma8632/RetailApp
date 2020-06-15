@@ -4,12 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.crude.AccountDao;
+import com.crude.CustomerDao;
+
 @Controller
 public class Acontroller {
 
 	@RequestMapping("Home")
-	public ModelAndView HomeScreen() {
+	public ModelAndView HomeScreen(String msg) {
 	ModelAndView mv=new ModelAndView();
+	mv.addObject("msg", msg);
 	mv.setViewName("Home");
 	return mv;
 	}
@@ -38,6 +42,7 @@ public class Acontroller {
 	@RequestMapping("CustomerStatus")
 	public ModelAndView CustomerStatusScreen() {
 		ModelAndView mv=new ModelAndView();
+		mv.addObject("clist",CustomerDao.status());
 		mv.setViewName("CustomerStatus");
 		return mv;
 	}
@@ -81,6 +86,7 @@ public class Acontroller {
 	@RequestMapping("AccountStatus")
 	public ModelAndView AccountStatusScreen() {
 	ModelAndView mv=new ModelAndView();
+	mv.addObject("alist", AccountDao.status());
 	mv.setViewName("AccountStatus");
 	return mv;
 	}
@@ -110,8 +116,15 @@ public class Acontroller {
 	@RequestMapping("Logout")
 	public ModelAndView LogouttScreen() {
 	ModelAndView mv=new ModelAndView();
+	System.out.println("it was here");
 	mv.setViewName("Logout");
 	return mv;
 	}
-	
+	@RequestMapping("index")
+	public ModelAndView index(String msg) {
+	ModelAndView mv=new ModelAndView();
+	mv.addObject("msg", msg);
+	mv.setViewName("index");
+	return mv;
+	}	
 }

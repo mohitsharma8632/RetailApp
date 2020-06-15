@@ -1,3 +1,4 @@
+
 package com.crude;
 
 import java.sql.Connection;
@@ -17,14 +18,16 @@ public class UserDao {
 	public static boolean ucheck(UserEx u) {
 		boolean flag = false;
 		try {
-			String sql = "SELECT * FROM tbl_user where ws_uname="+u.getUname();
+			String sql = "SELECT * FROM user where uname='"+u.getUname()+"'";
+		System.out.println(sql);
 			connection = DBConnectionUtil.openConnection();
-			preparedStatement = connection.prepareStatement(sql);
-			resultSet = preparedStatement.executeQuery();
-			
-				if(resultSet.getString("ws_upass").equals(u.getPassword()))
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(sql);
+			if(resultSet.next()) {
+				String pass=resultSet.getString(2);
+				if(pass.equals(u.getPassword()))
 					return true;
-				else
+			}	else
 					return false;
 				
 			

@@ -78,7 +78,7 @@ public static boolean delete (Customer c) {
 	return flag;
 	}
 
-public static List<Customer> status (Customer c) {
+public static List<Customer> status () {
 	
 	List<Customer> list = null;
 	Customer customer = null;
@@ -116,14 +116,14 @@ public static Customer getcustomerbyssnid (Customer c) {
 		connection = DBConnectionUtil.openConnection();
 		statement = connection.createStatement();
 		resultSet = statement.executeQuery(sql);
-
+if(resultSet.next()) {
 			customer = new Customer();
 			customer.setSsnid(resultSet.getInt(1));
 			customer.setName(resultSet.getString(2));
 			customer.setAge(resultSet.getInt(3));
 			customer.setAddress(resultSet.getString(4));
 			customer.setCustomerid(resultSet.getInt(5));
-	}catch(SQLException e) {
+}	}catch(SQLException e) {
 		e.printStackTrace();
 	}
 	return customer;
@@ -140,13 +140,14 @@ public static Customer getcustomerbycustomerid (Customer c) {
 		connection = DBConnectionUtil.openConnection();
 		statement = connection.createStatement();
 		resultSet = statement.executeQuery(sql);
+		if(resultSet.next()) {
 			customer = new Customer();
 			customer.setSsnid(resultSet.getInt(1));
 			customer.setName(resultSet.getString(2));
 			customer.setAge(resultSet.getInt(3));
 			customer.setAddress(resultSet.getString(4));
 			customer.setCustomerid(resultSet.getInt(5));
-	}catch(SQLException e) {
+		}	}catch(SQLException e) {
 		e.printStackTrace();
 	}
 	return customer;

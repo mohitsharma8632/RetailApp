@@ -61,7 +61,7 @@ public static boolean delete (Account a) {
 	}
 
 
-public static List<Account> status (Account a) {
+public static List<Account> status () {
 	
 	List<Account> list = null;
 	Account account = null;
@@ -99,14 +99,14 @@ public static Account getaccountbyid (Account a) {
 		connection = DBConnectionUtil.openConnection();
 		statement = connection.createStatement();
 		resultSet = statement.executeQuery(sql);
-
+if(resultSet.next()) {
 			account = new Account();
 			account.setCustomerid(resultSet.getInt(1));
 			account.setAccountype(resultSet.getString(2));
 			account.setBalance(resultSet.getInt(3));
 			account.setDate(resultSet.getString(4));
 			account.setAccountid(resultSet.getInt(5));
-
+}
 	}catch(SQLException e) {
 		e.printStackTrace();
 	}
@@ -125,13 +125,14 @@ public static Account getaccountbycustomerid (Account a) {
 		connection = DBConnectionUtil.openConnection();
 		statement = connection.createStatement();
 		resultSet = statement.executeQuery(sql);
-
+		if(resultSet.next()) {
 			account = new Account();
 			account.setCustomerid(resultSet.getInt(1));
 			account.setAccountype(resultSet.getString(2));
 			account.setBalance(resultSet.getInt(3));
 			account.setDate(resultSet.getString(4));
 			account.setAccountid(resultSet.getInt(5));
+}
 
 	}catch(SQLException e) {
 		e.printStackTrace();
@@ -153,7 +154,8 @@ public static boolean accountwithdraw(int accountid,int amount) {
 		String sql = "UPDATE account SET balance = "+balance+" where accountid="+accountid;
 		connection = DBConnectionUtil.openConnection();
 		preparedStatement = connection.prepareStatement(sql);
-		preparedStatement.executeUpdate();
+		int i=preparedStatement.executeUpdate();
+		if(i>1)
 		flag = true;
 	}catch(SQLException e) {
 		e.printStackTrace();
@@ -173,7 +175,8 @@ public static boolean accountdeposit(int accountid,int amount) {
 		String sql = "UPDATE account SET balance = "+balance+" where accountid="+accountid;
 		connection = DBConnectionUtil.openConnection();
 		preparedStatement = connection.prepareStatement(sql);
-		preparedStatement.executeUpdate();
+		int i=preparedStatement.executeUpdate();
+		if(i>0)
 		flag = true;
 	}catch(SQLException e) {
 		e.printStackTrace();

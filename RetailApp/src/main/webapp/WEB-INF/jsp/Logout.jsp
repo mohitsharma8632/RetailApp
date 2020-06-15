@@ -10,7 +10,7 @@
 <body>
 <%
 session.invalidate();
-response.sendRedirect("");
+response.sendRedirect("index");
 %>
 </body>
 </html>
