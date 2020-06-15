@@ -8,6 +8,14 @@ public class Transaction {
 	private int targetaccountid;
 	private String targetaccounttype;
 	private int transactionid;
+	private String type;
+	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public int getSourceaccountid() {
 		return sourceaccountid;
 	}

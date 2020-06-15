@@ -101,28 +101,31 @@ public void DeleteAccountAction(Account a,HttpServletResponse r) throws IOExcept
 @RequestMapping("DepositAction")
 public void DepositAction(Transaction t,HttpServletResponse r) throws IOException {
 	if(TransactionDao.deposit(t)) {
-		r.sendRedirect("Success");
+		r.sendRedirect("Home?msg=Deposit of amount"+t.getAmount()+" into account id  "+t.getSourceaccountid()+" was successfull");
 	}else {
-		r.sendRedirect("Failed");
+		r.sendRedirect("MoneyDeposit?msg=Deposit of amount"+t.getAmount()+" into account id  "+t.getSourceaccountid()+" was unsuccessfull");
 	}
 }
 
 @RequestMapping("WithdrawAction")
 public void WithdrawAction(Transaction t,HttpServletResponse r) throws IOException {
 	if(TransactionDao.withdraw(t)) {
-		r.sendRedirect("Success");
+		Account acc=new Account();acc.setAccountid(t.getSourceaccountid());
+		int balance=AccountDao.getaccountbyid(acc).getBalance();
+		r.sendRedirect("Home?msg=Withdraw of amount"+t.getAmount()+" from account id  "+t.getSourceaccountid()+" was successfull new balance is"+balance);
 	}else {
-		r.sendRedirect("Failed");
+		r.sendRedirect("Withdraw?msg=Withdraw of amount"+t.getAmount()+" from account id  "+t.getSourceaccountid()+" was unsuccessfull");
 	}
 }
 
-@RequestMapping("TransferMoneyAction")
+@RequestMapping("TransferAction")
 public void TransferMoneyAction(Transaction t,HttpServletResponse r) throws IOException {
-	if(TransactionDao.withdraw(t)) {
-		r.sendRedirect("Success");
+	if(TransactionDao.transfer(t)) {
+	r.sendRedirect("Home?msg=Transfer of amount"+t.getAmount()+" from account id  "+t.getSourceaccountid()+" to account id "+t.getTargetaccountid()+" was successfull");
 	}else {
-		r.sendRedirect("Failed");
+		r.sendRedirect("Transfer?msg=Transfer of amount"+t.getAmount()+" from account id  "+t.getSourceaccountid()+" to account id "+t.getTargetaccountid()+" was usuccessfull");
 	}
+	
 }
 	
 

@@ -37,24 +37,28 @@
                     <br/><br/>
                     <div class="row">
                         <div class="offset-md-3 col-md-6">
-                            <form class="offset-md-3" action="#" method="post"> 
+                            <form class="offset-md-3" action="TransferAction" method="post"> 
                                 <div class="form-group row">
                                     <label for="customerId" class="col-12 col-md-4 col-form-label">Customer Id</label>
-                                    <input type="text" class="form-control col-md-8" id="customerId" name="customerId" disabled/>
+                                    <input type="text" class="form-control col-md-8" id="customerId" name="sourceaccountid" />
 
                                 </div>
                                 <div class="form-group row">
                                     <label for="sourceAccountType" class="col-12 col-md-4 col-form-label">Source Account Type</label>
-                                    <input type="text" class="form-control col-12 col-md-8" id="sourceAccountType" name="sourceAccountType" required/>
+                                    <input type="text" class="form-control col-12 col-md-8" id="sourceAccountType" name="sourceaccounttype" />
 
                                 </div>
                                 <div class="form-group row">
+                                    <label for="targetAccountType" class="col-12 col-md-4 col-form-label">Target Account id</label>
+                                    <input type="text" class="form-control col-12 col-md-8" id="targetAccountType" name="targetaccountid" required/>
+                                </div>
+                                <div class="form-group row">
                                     <label for="targetAccountType" class="col-12 col-md-4 col-form-label">Target Account Type</label>
-                                    <input type="number" class="form-control col-12 col-md-8" id="targetAccountType" name="targetAccountType" required/>
+                                    <input type="text" class="form-control col-12 col-md-8" id="targetAccountType" name="targetaccounttype" required/>
                                 </div>
                                 <div class="form-group row">
                                     <label for="tranferAmount" class="col-12 col-md-4 col-form-label">Transfer Amount</label>
-                                    <input type="number" class="form-control col-12 col-md-8" id="tranferAmount" name="tranferAmount" required/>
+                                    <input type="number" class="form-control col-12 col-md-8" id="tranferAmount" name="amount" required/>
                                 </div>
                                 
                                 <div class="form-group row">
