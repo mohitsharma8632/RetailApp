@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h2 style="color:red;">${msg}</h2>
           <form action="LoginAction" method="post">
             <div class="form-group">
               <input type="text" class="form-control form-control-lg" placeholder="User Name" name="uname" />

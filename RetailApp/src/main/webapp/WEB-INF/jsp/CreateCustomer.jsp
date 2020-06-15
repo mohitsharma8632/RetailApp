@@ -20,6 +20,7 @@
 </head>
 <body>
 <%@ include file="Header.jsp" %>
+<h1>${msg}</h1>
 	<div style='backgroundColor: "lightgrey"'>
 		
                 <div class="container justify-content-center pt-3" >
@@ -30,7 +31,7 @@
                             <form class="offset-md-3" action="CreateCustomerAction" method="post"> 
                                 <div class="form-group row">
                                     <label for="ssnId" class="col-12 col-md-4 col-form-label">Customer SSN Id<sup style="color:red">*</sup></label>
-                                    <input type="text" class="form-control col-md-8" id="ssnId" name="ssnId" required/>
+                                    <input type="text" class="form-control col-md-8" id="ssnId" name="ssnid" required/>
 
                                 </div>
                                 <div class="form-group row">

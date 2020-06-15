@@ -29,19 +29,9 @@
                                     Customer Management
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="customerManagement">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="customerManagement" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Customer Management
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="customerManagement">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="CreateCustomer">Create Customer</a>
+                                    <a class="dropdown-item" href="CustomerSearch?operation=UpdateCustomer">Update Customer</a>
+                                    <a class="dropdown-item" href="DeleteCustomer">Delete Customer</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -49,9 +39,8 @@
                                     Account Management
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="accountManagement">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="CreateAccount">Create Account</a>
+                                    <a class="dropdown-item" href="DeleteAccount">Delete Account</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -59,9 +48,8 @@
                                     Status Details
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="statusDetails">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="CustomerStatus">Customer Status</a>
+                                    <a class="dropdown-item" href="AccountStatus">Account action</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -69,13 +57,14 @@
                                     Account Operations
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="accountOperations">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="AccountSearch?operation=Deposit">Deposit</a>
+                                    <a class="dropdown-item" href="AccountSearch?operation=Withdraw">Withdraw</a>
+                                    <a class="dropdown-item" href="AccountSearch?operation=Transfer">Transfer</a>
+                                    <a class="dropdown-item" href="#">Account Statement</a>
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Logout</a>
+                                <a class="nav-link" href="Logout">Logout</a>
                             </li>
 
                         </ul>

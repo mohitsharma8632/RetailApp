@@ -30,6 +30,7 @@
 </head>
 <body>
 	<%@ include file="Header.jsp" %>  
+	<h1>${msg}</h1>
 	<div style='backgroundColor: "lightgrey"'>
 		
 		<div class="container justify-content-center pt-3">
@@ -40,38 +41,38 @@
 				            <div class="form-group row">
 				            	<label for="ssnId" class="col-12 col-md-4 col-form-label">Customer SSN ID</label>
 				            	<!-- value to be displayed from obtained java object and input filed is disabled -->
-				            	<input type="text" class="form-control col-md-8" id="ssnId" name="ssnId" value=<%= "customer.ssnId" %> disabled="disabled"/>
+				            	<input type="text" class="form-control col-md-8" id="ssnId" name="ssnid"/>
 				            </div>
 				            <div class="form-group row">
 				            	<label for="cId" class="col-12 col-md-4 col-form-label">Customer ID</label>
 				            	<!-- value to be displayed from obtained java object and input filed is disabled -->
-				              	<input type="text" class="form-control col-md-8" id="cId" name="cId" value=<%= "customer.id" %> disabled="disabled"/>
+				              	<input type="text" class="form-control col-md-8" id="cId" name="customerid" />
 				            </div>
 				            <div class="form-group row">
 				            	<label for="oldCustomerName" class="col-12 col-md-4 col-form-label">Old Customer Name</label>
 				            	<!-- value to be displayed from obtained java object and input filed is disabled -->
-				            	<input type="text" class="form-control col-md-8" id="oldCustomerName" name="oldCustomerName" value=<%= " customer.name" %> disabled="disabled"/>
+				            	<input type="text" class="form-control col-md-8" id="oldCustomerName" name="oldCustomerName" value="getting it soon" disabled="disabled"/>
 				              	
 				            </div>
 				            <div class="form-group row">
 				            	<label for="newCustomerName" class="col-12 col-md-4 col-form-label">New Customer Name<sup style="color:red">*</sup></label>
-				              	<input type="text" class="form-control col-md-8"  id="newCustomerName" name="newCustomerName" required/>
+				              	<input type="text" class="form-control col-md-8"  id="newCustomerName" name="name" required/>
 				            </div>
 				            <div class="form-group row">
 				            	<label for="oldAddress" class="col-12 col-md-4 col-form-label">Old Address</label>
-				            	<input type="text" class="form-control col-md-8" id="oldAddress" name="oldAddress" value=<%= "customer.address" %> disabled="disabled"/>
+				            	<input type="text" class="form-control col-md-8" id="oldAddress" name="oldAddress" value="getting it soon" disabled="disabled"/>
 				            </div>
 				            <div class="form-group row">
 				            <label for="newAddress" class="col-12 col-md-4 col-form-label">New Address<sup style="color:red">*</sup></label>
-				              <input type="text" class="form-control col-md-8"  id="newAddress" name="newAddress" required/>
+				              <input type="text" class="form-control col-md-8"  id="newAddress" name="address" required/>
 				            </div>     
 				            <div class="form-group row">
 				            	<label for="oldAge" class="col-12 col-md-4 col-form-label">Old Age</label>
-				            	<input type="text" class="form-control col-md-8" id="oldAge" name="oldAge" value=<%= "customer.age" %> disabled="disabled"/>
+				            	<input type="text" class="form-control col-md-8" id="oldAge" name="oldAge" value="getting it soon" disabled="disabled"/>
 				            </div>
 				            <div class="form-group row">
 				            <label for="newAge" class="col-12 col-md-4 col-form-label">New Age<sup style="color:red">*</sup></label>
-				              <input type="text" class="form-control col-md-8"  id="newAge" name="newAge" required/>
+				              <input type="text" class="form-control col-md-8"  id="newAge" name="age" required/>
 				            </div> 
 				            <div class="form-group row">
 				            	<span style="color:red">(*) Fields are compulsory</span>

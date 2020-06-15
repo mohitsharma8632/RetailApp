@@ -1,20 +1,21 @@
 package com.pojo;
 
 public class Account {
-	private String customerid;
-	private String accountid;
+	private int customerid;
+	private int accountid;
 	private String accountype;
-	private String balance;
-	public String getCustomerid() {
+	private int balance;
+	private String date;
+	public int getCustomerid() {
 		return customerid;
 	}
-	public void setCustomerid(String customerid) {
+	public void setCustomerid(int customerid) {
 		this.customerid = customerid;
 	}
-	public String getAccountid() {
+	public int getAccountid() {
 		return accountid;
 	}
-	public void setAccountid(String accountid) {
+	public void setAccountid(int accountid) {
 		this.accountid = accountid;
 	}
 	public String getAccountype() {
@@ -23,11 +24,17 @@ public class Account {
 	public void setAccountype(String accountype) {
 		this.accountype = accountype;
 	}
-	public String getBalance() {
+	public int getBalance() {
 		return balance;
 	}
-	public void setBalance(String balance) {
+	public void setBalance(int balance) {
 		this.balance = balance;
 	}
-
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
 }

@@ -31,10 +31,10 @@
 		<p class="pt-10">Either one of the details should be entered</p><br/><br/>
 		<div class="row">
           <div class="offset-md-3 col-md-6">
-			<form action="#" method="post">
+			<form action="${operation}" method="post">
 				<div class="form-group row">
 					<label for="ssnId" class="col-12 col-md-4 col-form-label">Enter SSN ID</label>
-					<input type="number" class="form-control col-md-8" name="ssnId" id="ssnId" />
+					<input type="number" class="form-control col-md-8" name="ssnId" id="ssnid" />
 				</div><br/>
 				
 				<h1>OR</h1><br/>
@@ -42,7 +42,7 @@
 				
 				<div class="form-group row">
 					<label for="customerId" class="col-12 col-md-4 col-form-label">Enter Customer ID</label>
-					<input type="number" class="form-control col-md-8" name="customerId" id="customerId" />
+					<input type="number" class="form-control col-md-8" name="customerid" id="customerId" />
 				</div>
 				<br/>
 				<div class="form-group row pt-3">

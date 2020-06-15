@@ -20,33 +20,34 @@
 </head>
 <body>
 	<%@ include file="Header.jsp" %>  
+	<h1>${msg}</h1>
 	<div style='backgroundColor: "lightgrey"'>
 		
 		<div class="container justify-content-center pt-3">
 			<h4 class="text-center"><strong>Delete Customer</strong></h4>
 			<div class="row">
                <div class="offset-md-3 col-md-6">
-					<form class="mt-3" action="CreateAccountAction" method="post">
+					<form class="mt-3" action="DeleteCustomerAction" method="post">
                         <div class="form-group row">
                               <label for="ssnId" class="col-12 col-md-4 col-form-label">SSN Id:</label>
-                              <input type="text" class="form-control col-md-8" id="ssnId" name="ssnId" value=<%="customer.ssnId" %> disabled/>
+                              <input type="text" class="form-control col-md-8" id="ssnId" name="ssnid" />
                         </div>
                         <div class="form-group row">
                               <label for="customerId" class="col-12 col-md-4 col-form-label">Customer Id:</label>
-                              <input type="number" class="form-control col-md-8" id="customerId" name="customerId" value=<%=1212112 %> disabled/>
+                              <input type="number" class="form-control col-md-8" id="customerId" name="customerid" />
                         </div>
                         <div class="form-group row">
                                     <label for="name" class="col-12 col-md-4 col-form-label">Customer Name:</label>
-                                    <input type="text" class="form-control col-12 col-md-8" id="name" name="name" value=<%="customer.name" %> disabled/>
+                                    <input type="text" class="form-control col-12 col-md-8" id="name" name="name" />
 
                         </div>
                         <div class="form-group row">
                                     <label for="age" class="col-12 col-md-4 col-form-label">Age:</label>
-                                    <input type="number" class="form-control col-12 col-md-8" id="age" name="age" value=<%=23 %> disabled/>
+                                    <input type="number" class="form-control col-12 col-md-8" id="age" name="age" />
                         </div>
                         <div class="form-group row">
                                     <label for="address" class="col-12 col-md-4 col-form-label">Address:</label>
-                                    <input type="text" class="form-control col-12 col-md-8" id="address" name="address" value=<%="customer.address" %> disabled/>
+                                    <input type="text" class="form-control col-12 col-md-8" id="address" name="address" />
                         </div>
     			        <div class="form-group clearfix">
 						  <button type="button" class="btn btn-dark float-left">Confirm Delete</button>

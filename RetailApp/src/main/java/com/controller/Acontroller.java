@@ -7,7 +7,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class Acontroller {
 
-
+	@RequestMapping("Home")
+	public ModelAndView HomeScreen() {
+	ModelAndView mv=new ModelAndView();
+	mv.setViewName("Home");
+	return mv;
+	}
 	
 	@RequestMapping("CreateCustomer")
 	public ModelAndView CreateCustomer() {
@@ -38,7 +43,7 @@ public class Acontroller {
 	}
 	
 	@RequestMapping("CustomerSearch")
-	public ModelAndView CustomerSearch() {
+	public ModelAndView CustomerSearch(String operation) {
 		ModelAndView mv=new ModelAndView();
 		mv.setViewName("CustomerSearchForm");
 		return mv;
@@ -102,4 +107,11 @@ public class Acontroller {
 	mv.setViewName("Deposit");
 	return mv;
 	}
+	@RequestMapping("Logout")
+	public ModelAndView LogouttScreen() {
+	ModelAndView mv=new ModelAndView();
+	mv.setViewName("Logout");
+	return mv;
+	}
+	
 }

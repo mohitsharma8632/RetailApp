@@ -5,10 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.pojo.Account;
+import com.pojo.Customer;
 import com.crude.DBConnectionUtil;
 
 public class AccountDao {
@@ -18,34 +22,44 @@ public class AccountDao {
 	static PreparedStatement preparedStatement = null;
 
 
-public static boolean create(Account a) {
-	boolean flag = false;
+public static int create(Account a) {
+	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    Date datenow = new Date();
+    String s=dateFormat.format(datenow);
+	int f = 0;
 	try {
-		String sql = "INSERT INTO tbl_account(ws_cust_id, ws_acct_type, ws_acct_balance)VALUES"
-				+ "('"+a.getCustomerid()+"', '"+a.getAccountype()+"', '"+a.getBalance()+"')";
+		String sql = "INSERT INTO account VALUES(?,?,?,?,Null)";
 		connection = DBConnectionUtil.openConnection();
 		preparedStatement = connection.prepareStatement(sql);
-		preparedStatement.executeUpdate();
-		flag = true;
+		preparedStatement.setInt(1, a.getCustomerid());
+		preparedStatement.setString(2, a.getAccountype());
+		preparedStatement.setInt(3, a.getBalance());
+		preparedStatement.setString(4, s);
+		f =preparedStatement.executeUpdate();
+		if(f==1) {
+			return getaccountbycustomerid(a).getAccountid();
+		}
 	}catch(SQLException ex) {
 		ex.printStackTrace();
 	}
-	return flag;
+	return f;
 		}
 
 public static boolean delete (Account a) {
 	boolean flag = false;
 	try {
-		String sql = "DELETE FROM tbl_account where ws_acct_id="+a.getAccountid();
+		String sql = "DELETE FROM account where accountid="+a.getAccountid();
 		connection = DBConnectionUtil.openConnection();
 		preparedStatement = connection.prepareStatement(sql);
-		preparedStatement.executeUpdate();
-		flag = true;
+	int i=	preparedStatement.executeUpdate();
+	if(i>0)	
+	flag = true;
 	}catch(SQLException e) {
 		e.printStackTrace();
 	}
 	return flag;
 	}
+
 
 public static List<Account> status (Account a) {
 	
@@ -55,16 +69,17 @@ public static List<Account> status (Account a) {
 	try {
 		
 		list = new ArrayList<Account>();
-		String sql = "SELECT * FROM tbl_account";
+		String sql = "SELECT * FROM account";
 		connection = DBConnectionUtil.openConnection();
 		statement = connection.createStatement();
 		resultSet = statement.executeQuery(sql);
 		while(resultSet.next()) {
 			account = new Account();
-			account.setAccountid(Integer.toString(resultSet.getInt("ws_acct_id")));
-			account.setCustomerid(Integer.toString(resultSet.getInt("ws_cust_id")));
-			account.setAccountype(resultSet.getString("ws_acct_type"));
-			account.setBalance(Integer.toString(resultSet.getInt("ws_acct_balance")));
+			account.setCustomerid(resultSet.getInt(1));
+			account.setAccountype(resultSet.getString(2));
+			account.setBalance(resultSet.getInt(3));
+			account.setDate(resultSet.getString(4));
+			account.setAccountid(resultSet.getInt(5));
 			list.add(account);
 		}
 	}catch(SQLException e) {
@@ -73,4 +88,97 @@ public static List<Account> status (Account a) {
 	return list;
 	
 	}
+
+public static Account getaccountbyid (Account a) {
+	
+	Account account = null;
+	
+	try {
+		
+		String sql = "SELECT * FROM account where accountid="+a.getAccountid();
+		connection = DBConnectionUtil.openConnection();
+		statement = connection.createStatement();
+		resultSet = statement.executeQuery(sql);
+
+			account = new Account();
+			account.setCustomerid(resultSet.getInt(1));
+			account.setAccountype(resultSet.getString(2));
+			account.setBalance(resultSet.getInt(3));
+			account.setDate(resultSet.getString(4));
+			account.setAccountid(resultSet.getInt(5));
+
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}
+	return account;
+	
+	}
+
+
+public static Account getaccountbycustomerid (Account a) {
+	
+	Account account = null;
+	
+	try {
+		
+		String sql = "SELECT * FROM account where customerid="+a.getCustomerid();
+		connection = DBConnectionUtil.openConnection();
+		statement = connection.createStatement();
+		resultSet = statement.executeQuery(sql);
+
+			account = new Account();
+			account.setCustomerid(resultSet.getInt(1));
+			account.setAccountype(resultSet.getString(2));
+			account.setBalance(resultSet.getInt(3));
+			account.setDate(resultSet.getString(4));
+			account.setAccountid(resultSet.getInt(5));
+
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}
+	return account;
+	
+	}
+
+
+public static boolean accountwithdraw(int accountid,int amount) {
+	Account a=new Account();
+	a.setAccountid(accountid);
+	int balance=getaccountbyid(a).getBalance();
+	
+	boolean flag = false;
+	if(balance>amount) {
+	balance-=amount;
+		try {
+		String sql = "UPDATE account SET balance = "+balance+" where accountid="+accountid;
+		connection = DBConnectionUtil.openConnection();
+		preparedStatement = connection.prepareStatement(sql);
+		preparedStatement.executeUpdate();
+		flag = true;
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}
+	}
+	return flag;
+	}
+
+
+public static boolean accountdeposit(int accountid,int amount) {
+	Account a=new Account();
+	a.setAccountid(accountid);
+	int balance=getaccountbyid(a).getBalance();
+	balance+=amount;
+	boolean flag = false;
+	try {
+		String sql = "UPDATE account SET balance = "+balance+" where accountid="+accountid;
+		connection = DBConnectionUtil.openConnection();
+		preparedStatement = connection.prepareStatement(sql);
+		preparedStatement.executeUpdate();
+		flag = true;
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}
+	return flag;
+	}
+
 }

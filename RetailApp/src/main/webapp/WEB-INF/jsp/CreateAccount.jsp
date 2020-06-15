@@ -20,6 +20,7 @@
 </head>
 <body>
 <%@ include file="Header.jsp" %>  
+<h1>${msg}</h1>
 	<div style='backgroundColor: "lightgrey"'>
 		
 		<div class="container justify-content-center pt-3">
@@ -29,15 +30,15 @@
 					<form class="mt-3" action="CreateAccountAction" method="post">
 				            <div class="form-group row">
 				            	<label for="cid" class="col-12 col-md-4 col-form-label">Customer Id<sup style="color:red">*</sup></label>
-				              	<input type="number" class="form-control col-md-8" id="cid" name="cid" required/>
+				              	<input type="number" class="form-control col-md-8" id="cid" name="customerid" required/>
 				            </div>
 				            <div class="form-group row">
 				            	<label for="accountType" class="col-12 col-md-4 col-form-label">Account Type<sup style="color:red">*</sup></label>
-				              	<input type="text" class="form-control col-md-8"  id="accountType" name="accountType" required/>
+				              	<input type="text" class="form-control col-md-8"  id="accountType" name="accountype" required/>
 				            </div>
 				            <div class="form-group row">
 				            <label for="depositAmount" class="col-12 col-md-4 col-form-label">Deposit Amount<sup style="color:red">*</sup></label>
-				              <input type="number" class="form-control col-md-8"  id="depositAmount" name="depositAmount" required/>
+				              <input type="number" class="form-control col-md-8"  id="depositAmount" name="balance" required/>
 				            </div>    
 				            <div class="form-group row">
 				            	<span style="color:red">(*) Fields are compulsory</span>

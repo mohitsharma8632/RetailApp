@@ -20,6 +20,7 @@
 </head>
 <body>
 	<%@ include file="Header.jsp" %>  
+	<h1>${msg}</h1>
 	<div style='backgroundColor: "lightgrey"'>
 		
 		<div class="container justify-content-center pt-3">
@@ -27,14 +28,14 @@
 			<br/><br/><br/>
 			<div class="row">
                <div class="offset-md-3 col-md-6">
-					<form class="mt-3" action="CreateAccountAction" method="post">
+					<form class="mt-3" action="DeleteAccountAction" method="post">
 				            <div class="form-group row">
 				            	<label for="accountId" class="col-12 col-md-4 col-form-label">Account Id</label>
-				              	<input type="number" class="form-control col-md-8" id="accountId" name="accountId" />
+				              	<input type="number" class="form-control col-md-8" id="accountId" name="accountid" />
 				            </div>
 				            <div class="form-group row">
 				            	<label for="accountType" class="col-12 col-md-4 col-form-label">Account Type</label>
-				              	<input type="text" class="form-control col-md-8"  id="accountType" name="accountType" placeholder="Current"/>
+				              	<input type="text" class="form-control col-md-8"  id="accountType" name="accountype" placeholder="Current"/>
 				            </div>
 				            
 				            <div class="form-group row">

@@ -1,28 +1,29 @@
 package com.pojo;
 
 public class Transaction {
-	private String customerid;
-	private String accounttype;
-	private String amount;
-	private String date;
+	private int sourceaccountid;
 	private String sourceaccounttype;
+	private int amount;
+	private String date;
+	private int targetaccountid;
 	private String targetaccounttype;
-	public String getCustomerid() {
-		return customerid;
+	private int transactionid;
+	public int getSourceaccountid() {
+		return sourceaccountid;
 	}
-	public void setCustomerid(String customerid) {
-		this.customerid = customerid;
+	public void setSourceaccountid(int sourceaccountid) {
+		this.sourceaccountid = sourceaccountid;
 	}
-	public String getAccounttype() {
-		return accounttype;
+	public String getSourceaccounttype() {
+		return sourceaccounttype;
 	}
-	public void setAccounttype(String accounttype) {
-		this.accounttype = accounttype;
+	public void setSourceaccounttype(String sourceaccounttype) {
+		this.sourceaccounttype = sourceaccounttype;
 	}
-	public String getAmount() {
+	public int getAmount() {
 		return amount;
 	}
-	public void setAmmount(String amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
 	}
 	public String getDate() {
@@ -31,17 +32,23 @@ public class Transaction {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public String getSourceaccounttype() {
-		return sourceaccounttype;
+	public int getTargetaccountid() {
+		return targetaccountid;
 	}
-	public void setSourceaccounttype(String sourceaccounttype) {
-		this.sourceaccounttype = sourceaccounttype;
+	public void setTargetaccountid(int targetaccountid) {
+		this.targetaccountid = targetaccountid;
 	}
 	public String getTargetaccounttype() {
 		return targetaccounttype;
 	}
 	public void setTargetaccounttype(String targetaccounttype) {
 		this.targetaccounttype = targetaccounttype;
+	}
+	public int getTransactionid() {
+		return transactionid;
+	}
+	public void setTransactionid(int transactionid) {
+		this.transactionid = transactionid;
 	}
 	
 }

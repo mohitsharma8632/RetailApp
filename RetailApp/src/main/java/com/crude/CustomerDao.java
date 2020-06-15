@@ -19,28 +19,40 @@ public class CustomerDao {
 	static Statement statement = null;
 	static PreparedStatement preparedStatement = null;
 
-public static boolean create(Customer c) {
+public static int create(Customer c) {
 		
 
-	boolean flag = false;
+	int f = 0;
 	try {
-		String sql = "INSERT INTO tbl_customer(ws_ssn, ws_cust_id, ws_name, ws_age, ws_adrs)VALUES"
-				+ "('"+c.getSsid()+"','"+c.getCustomerid()+"', '"+c.getName()+"', '"+c.getAge()+"','"+c.getAddress()+"')";
+		String sql = "INSERT INTO customer VALUES(?,?,?,?,Null)";
 		connection = DBConnectionUtil.openConnection();
 		preparedStatement = connection.prepareStatement(sql);
-		preparedStatement.executeUpdate();
-		flag = true;
+		preparedStatement.setInt(1, c.getSsnid());
+		preparedStatement.setString(2, c.getName());
+		preparedStatement.setInt(3, c.getAge());
+		preparedStatement.setString(4, c.getAddress()+","+c.getCity()+","+c.getState());
+		f = preparedStatement.executeUpdate();
+		if(f==1) {
+			return getcustomerbyssnid(c).getCustomerid();
+		}
+		
 	}catch(SQLException ex) {
 		ex.printStackTrace();
 	}
-	return flag;
+	return f;
 		}
+
+
+
+
+
+
 public static boolean update(Customer c) {
 	
 	boolean flag = false;
 	try {
-		String sql = "UPDATE tbl_customer SET ws_name = '"+c.getName()+"', "
-				+ "ws_adrs = '"+c.getAddress()+"', ws_age = '"+c.getAge()+"' where id="+c.getCustomerid();
+		String sql = "UPDATE customer SET name = '"+c.getName()+"', "
+				+ "address = '"+c.getAddress()+"', age = '"+c.getAge()+"' where customerid="+c.getCustomerid();
 		connection = DBConnectionUtil.openConnection();
 		preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.executeUpdate();
@@ -50,11 +62,12 @@ public static boolean update(Customer c) {
 	}
 	return flag;
 	}
+
 public static boolean delete (Customer c) {
 	
 	boolean flag = false;
 	try {
-		String sql = "DELETE FROM tbl_customer where ws_cust_id="+c.getCustomerid();
+		String sql = "DELETE FROM customer where customerid="+c.getCustomerid();
 		connection = DBConnectionUtil.openConnection();
 		preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.executeUpdate();
@@ -73,18 +86,17 @@ public static List<Customer> status (Customer c) {
 	try {
 		
 		list = new ArrayList<Customer>();
-		String sql = "SELECT * FROM tbl_customer";
+		String sql = "SELECT * FROM customer";
 		connection = DBConnectionUtil.openConnection();
 		statement = connection.createStatement();
 		resultSet = statement.executeQuery(sql);
 		while(resultSet.next()) {
 			customer = new Customer();
-			customer.setSsid(Integer.toString(resultSet.getInt("ws_ssn")));
-			customer.setCustomerid(Integer.toString(resultSet.getInt("ws_cust_id")));
-			customer.setName(resultSet.getString("ws_name"));
-			customer.setAddress(resultSet.getString("ws_adrs"));
-			
-			customer.setAge(Integer.toString(resultSet.getInt("ws_age")));
+			customer.setSsnid(resultSet.getInt(1));
+			customer.setName(resultSet.getString(2));
+			customer.setAge(resultSet.getInt(3));
+			customer.setAddress(resultSet.getString(4));
+			customer.setCustomerid(resultSet.getInt(5));
 			list.add(customer);
 		}
 	}catch(SQLException e) {
@@ -93,4 +105,52 @@ public static List<Customer> status (Customer c) {
 	return list;
 	
 	}
+
+public static Customer getcustomerbyssnid (Customer c) {
+	
+	Customer customer = null;
+	
+	try {
+		
+		String sql = "SELECT * FROM customer  where ssnid="+c.getSsnid();
+		connection = DBConnectionUtil.openConnection();
+		statement = connection.createStatement();
+		resultSet = statement.executeQuery(sql);
+
+			customer = new Customer();
+			customer.setSsnid(resultSet.getInt(1));
+			customer.setName(resultSet.getString(2));
+			customer.setAge(resultSet.getInt(3));
+			customer.setAddress(resultSet.getString(4));
+			customer.setCustomerid(resultSet.getInt(5));
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}
+	return customer;
+	
+	}
+
+public static Customer getcustomerbycustomerid (Customer c) {
+	
+	Customer customer = null;
+	
+	try {
+		
+		String sql = "SELECT * FROM customer  where customerid="+c.getCustomerid();
+		connection = DBConnectionUtil.openConnection();
+		statement = connection.createStatement();
+		resultSet = statement.executeQuery(sql);
+			customer = new Customer();
+			customer.setSsnid(resultSet.getInt(1));
+			customer.setName(resultSet.getString(2));
+			customer.setAge(resultSet.getInt(3));
+			customer.setAddress(resultSet.getString(4));
+			customer.setCustomerid(resultSet.getInt(5));
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}
+	return customer;
+	
+	}
+
 }

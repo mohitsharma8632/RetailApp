@@ -2,23 +2,23 @@ package com.pojo;
 
 public class Customer {
 
-private String ssid;
-	public String getSsid() {
-		return ssid;
-	}
-	public void setSsid(String ssid) {
-		this.ssid = ssid;
-	}
-	private String customerid;
+private int ssnid;
+	private int customerid;
 	private String name;
-	private String age;
+	private int age;
 	private String address;
 	private String state;
 	private String city;
-	public String getCustomerid() {
+	public int getSsnid() {
+		return ssnid;
+	}
+	public void setSsnid(int ssnid) {
+		this.ssnid = ssnid;
+	}
+	public int getCustomerid() {
 		return customerid;
 	}
-	public void setCustomerid(String customerid) {
+	public void setCustomerid(int customerid) {
 		this.customerid = customerid;
 	}
 	public String getName() {
@@ -27,10 +27,10 @@ private String ssid;
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	public String getAddress() {
@@ -51,5 +51,5 @@ private String ssid;
 	public void setCity(String city) {
 		this.city = city;
 	}
-
+	
 }
