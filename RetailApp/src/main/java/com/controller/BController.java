@@ -72,11 +72,6 @@ public void DeleteCustomerAction(Customer c,HttpServletResponse r) throws IOExce
 
 
 
-@RequestMapping("CustomerStatusAction")
-public void CustomerStatusAction(Customer c,HttpServletResponse r) throws IOException {
-	List<Customer> clist=CustomerDao.status();
-		r.sendRedirect("Success");
-}
 
 
 @RequestMapping("CreateAccountAction")
@@ -102,14 +97,6 @@ public void DeleteAccountAction(Account a,HttpServletResponse r) throws IOExcept
 	}
 }
 
-
-
-
-@RequestMapping("AccountStatusAction")
-public void AccountStatusAction(Account a,HttpServletResponse r) throws IOException {
-	List<Account> alist=AccountDao.status();
-		r.sendRedirect("Success");
-}
 
 @RequestMapping("DepositAction")
 public void DepositAction(Transaction t,HttpServletResponse r) throws IOException {
