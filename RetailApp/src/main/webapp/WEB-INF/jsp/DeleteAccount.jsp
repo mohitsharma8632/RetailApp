@@ -6,7 +6,7 @@
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
     
     if(session.getAttribute("uname")==null){  
-    	response.sendRedirect("");
+    	response.sendRedirect("index");
     }  
     
     
@@ -31,11 +31,11 @@
 					<form class="mt-3" action="DeleteAccountAction" method="post">
 				            <div class="form-group row">
 				            	<label for="accountId" class="col-12 col-md-4 col-form-label">Account Id</label>
-				              	<input type="number" class="form-control col-md-8" id="accountId" name="accountid" />
+				              	<input type="number" class="form-control col-md-8" id="accountId" name="accountid"  value="${a.accountid }" disabled/>
 				            </div>
 				            <div class="form-group row">
 				            	<label for="accountType" class="col-12 col-md-4 col-form-label">Account Type</label>
-				              	<input type="text" class="form-control col-md-8"  id="accountType" name="accountype" placeholder="Current"/>
+				              	<input type="text" class="form-control col-md-8"  id="accountType" name="accountype" value="${a.accountype }" disabled/>
 				            </div>
 				            
 				            <div class="form-group row">

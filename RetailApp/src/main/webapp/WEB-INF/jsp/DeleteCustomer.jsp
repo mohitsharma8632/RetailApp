@@ -6,7 +6,7 @@
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
     
     if(session.getAttribute("uname")==null){  
-    	response.sendRedirect("");
+    	response.sendRedirect("index");
     }  
     
     
@@ -30,24 +30,24 @@
 					<form class="mt-3" action="DeleteCustomerAction" method="post">
                         <div class="form-group row">
                               <label for="ssnId" class="col-12 col-md-4 col-form-label">SSN Id:</label>
-                              <input type="text" class="form-control col-md-8" id="ssnId" name="ssnid" />
+                              <input type="text" class="form-control col-md-8" id="ssnId" name="ssnid"  value="${c.ssnid }" disabled/>
                         </div>
                         <div class="form-group row">
                               <label for="customerId" class="col-12 col-md-4 col-form-label">Customer Id:</label>
-                              <input type="number" class="form-control col-md-8" id="customerId" name="customerid" />
+                              <input type="number" class="form-control col-md-8" id="customerId" name="customerid"   value="${c.customerid }" disabled />
                         </div>
                         <div class="form-group row">
                                     <label for="name" class="col-12 col-md-4 col-form-label">Customer Name:</label>
-                                    <input type="text" class="form-control col-12 col-md-8" id="name" name="name" />
+                                    <input type="text" class="form-control col-12 col-md-8" id="name" name="name"   value="${c.name }" disabled />
 
                         </div>
                         <div class="form-group row">
                                     <label for="age" class="col-12 col-md-4 col-form-label">Age:</label>
-                                    <input type="number" class="form-control col-12 col-md-8" id="age" name="age" />
+                                    <input type="number" class="form-control col-12 col-md-8" id="age" name="age"   value="${c.age }" disabled />
                         </div>
                         <div class="form-group row">
                                     <label for="address" class="col-12 col-md-4 col-form-label">Address:</label>
-                                    <input type="text" class="form-control col-12 col-md-8" id="address" name="address" />
+                                    <input type="text" class="form-control col-12 col-md-8" id="address" name="address"   value="${c.address }" disabled />
                         </div>
     			        <div class="form-group clearfix">
 						  <button type="button" class="btn btn-dark float-left">Confirm Delete</button>

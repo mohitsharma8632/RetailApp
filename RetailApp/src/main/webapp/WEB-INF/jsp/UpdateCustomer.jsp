@@ -6,7 +6,7 @@
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
     
     if(session.getAttribute("uname")==null){  
-    	response.sendRedirect("");
+    	response.sendRedirect("index");
     }  
     
     
@@ -41,17 +41,17 @@
 				            <div class="form-group row">
 				            	<label for="ssnId" class="col-12 col-md-4 col-form-label">Customer SSN ID</label>
 				            	<!-- value to be displayed from obtained java object and input filed is disabled -->
-				            	<input type="text" class="form-control col-md-8" id="ssnId" name="ssnid"/>
+				            	<input type="text" class="form-control col-md-8" id="ssnId" name="ssnid"  value="${c.ssnid }" disabled/>
 				            </div>
 				            <div class="form-group row">
 				            	<label for="cId" class="col-12 col-md-4 col-form-label">Customer ID</label>
 				            	<!-- value to be displayed from obtained java object and input filed is disabled -->
-				              	<input type="text" class="form-control col-md-8" id="cId" name="customerid" />
+				              	<input type="text" class="form-control col-md-8" id="cId" name="customerid"   value="${c.customerid }" disabled/>
 				            </div>
 				            <div class="form-group row">
 				            	<label for="oldCustomerName" class="col-12 col-md-4 col-form-label">Old Customer Name</label>
 				            	<!-- value to be displayed from obtained java object and input filed is disabled -->
-				            	<input type="text" class="form-control col-md-8" id="oldCustomerName" name="oldCustomerName" value="getting it soon" disabled="disabled"/>
+				            	<input type="text" class="form-control col-md-8" id="oldCustomerName" name="oldCustomerName"  value="${c.name }" disabled/>
 				              	
 				            </div>
 				            <div class="form-group row">
@@ -60,7 +60,7 @@
 				            </div>
 				            <div class="form-group row">
 				            	<label for="oldAddress" class="col-12 col-md-4 col-form-label">Old Address</label>
-				            	<input type="text" class="form-control col-md-8" id="oldAddress" name="oldAddress" value="getting it soon" disabled="disabled"/>
+				            	<input type="text" class="form-control col-md-8" id="oldAddress" name="oldAddress" value="${c.address }" disabled/>
 				            </div>
 				            <div class="form-group row">
 				            <label for="newAddress" class="col-12 col-md-4 col-form-label">New Address<sup style="color:red">*</sup></label>
@@ -68,7 +68,7 @@
 				            </div>     
 				            <div class="form-group row">
 				            	<label for="oldAge" class="col-12 col-md-4 col-form-label">Old Age</label>
-				            	<input type="text" class="form-control col-md-8" id="oldAge" name="oldAge" value="getting it soon" disabled="disabled"/>
+				            	<input type="text" class="form-control col-md-8" id="oldAge" name="oldAge" value="${c.age }" disabled/>
 				            </div>
 				            <div class="form-group row">
 				            <label for="newAge" class="col-12 col-md-4 col-form-label">New Age<sup style="color:red">*</sup></label>

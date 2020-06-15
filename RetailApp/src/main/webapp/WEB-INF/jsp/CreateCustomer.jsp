@@ -6,7 +6,7 @@
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
     
     if(session.getAttribute("uname")==null){  
-    	response.sendRedirect("");
+    	response.sendRedirect("index");
     }  
     
     

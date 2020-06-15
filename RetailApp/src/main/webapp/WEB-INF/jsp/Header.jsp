@@ -22,7 +22,7 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Home</a>
+                                <a class="nav-link" href="Home?msg=Home">Home</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="customerManagement" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,7 +31,7 @@
                                 <div class="dropdown-menu" aria-labelledby="customerManagement">
                                     <a class="dropdown-item" href="CreateCustomer">Create Customer</a>
                                     <a class="dropdown-item" href="CustomerSearch?operation=UpdateCustomer">Update Customer</a>
-                                    <a class="dropdown-item" href="DeleteCustomer">Delete Customer</a>
+                                    <a class="dropdown-item" href="CustomerSearch?operation=DeleteCustomer">Delete Customer</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -40,7 +40,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="accountManagement">
                                     <a class="dropdown-item" href="CreateAccount">Create Account</a>
-                                    <a class="dropdown-item" href="DeleteAccount">Delete Account</a>
+                                    <a class="dropdown-item" href="AccountSearch?operation=DeleteAccount">Delete Account</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -59,7 +59,7 @@
                                 <div class="dropdown-menu" aria-labelledby="accountOperations">
                                     <a class="dropdown-item" href="AccountSearch?operation=Deposit">Deposit</a>
                                     <a class="dropdown-item" href="AccountSearch?operation=Withdraw">Withdraw</a>
-                                    <a class="dropdown-item" href="AccountSearch?operation=Transfer">Transfer</a>
+                                    <a class="dropdown-item" href="Transfer">Transfer</a>
                                     <a class="dropdown-item" href="#">Account Statement</a>
                                 </div>
                             </li>

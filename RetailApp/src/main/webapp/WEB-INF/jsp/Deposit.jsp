@@ -6,7 +6,7 @@
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
     
     if(session.getAttribute("uname")==null){  
-    	response.sendRedirect("");
+    	response.sendRedirect("index");
     }  
     
     
@@ -39,32 +39,32 @@
 					<tr>
 						<td>Customer ID</td>
 						<td class="pl-2"> : </td>
-						<td class="pl-2">account.customer.id</td>
+						<td class="pl-2">${a.customerid }</td>
 					</tr>
 					<tr>
 						<td>Account ID</td>
 						<td class="pl-2"> : </td>
-						<td class="pl-2">account.id</td>
+						<td class="pl-2">${a.accountid }</td>
 					</tr>
 					<tr>
 						<td>Account Type</td>
 						<td class="pl-2"> : </td>
-						<td class="pl-2">account.type</td>
+						<td class="pl-2">${a.accountype }</td>
 					</tr>
 					<tr>
 						<td>Balance</td>
 						<td class="pl-2"> : </td>
-						<td class="pl-2">account.balance</td>
+						<td class="pl-2">${a.balance }</td>
 					</tr>
 					<tr></tr>
 					<tr>
 						<td><label for="depositAmount" class="col-form-label">Deposit Amount</label></td>
 						<td>:</td>
-						<td><input type="number" class="form-control" id="amount" name="depositAmount" style="height:30px"/></td>
+						<td><input type="number" class="form-control" id="amount" name="amount" style="height:30px"/></td>
 					</tr>
 					<tr>
-						<td><input type="hidden" name="sourceaccountid"  value=""/>
-						<input type="hidden"  name="sourceaccounttype"  value="" />
+						<td><input type="hidden" name="sourceaccountid"  value="${a.customerid }"/>
+						<input type="hidden"  name="sourceaccounttype"  value="${a.accountype }" />
 						</td>
 						<td></td>
 						<td><input type="submit" class="btn btn-dark btn-outline-warning btn-lg  py-2 px-5 float-right" value="Submit"/></td>

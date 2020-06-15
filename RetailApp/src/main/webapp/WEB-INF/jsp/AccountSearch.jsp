@@ -6,7 +6,7 @@
     response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
     
     if(session.getAttribute("uname")==null){  
-    	response.sendRedirect("");
+    	response.sendRedirect("index");
     }  
     
     
@@ -33,7 +33,7 @@
           <div class="offset-md-3 col-md-6">
 			<form action="${operation}" method="post">
 				<div class="form-group row">
-					<label for="ssnId" class="col-12 col-md-4 col-form-label">Account id</label>
+					<label for="accountid" class="col-12 col-md-4 col-form-label">Account id</label>
 					<input type="number" class="form-control col-md-8" name="accountid" id="accountid" />
 				</div><br/>
 				<br/>
