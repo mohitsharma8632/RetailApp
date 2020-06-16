@@ -27,9 +27,7 @@ public class Acontroller {
 public void LoginAction(UserEx u,HttpSession r,HttpServletResponse res) throws IOException {
 if(UserDao.ucheck(u)){
 	r.setAttribute("uname", u.getUname());
-	System.out.println("one");
 	res.sendRedirect("Home?msg=welcome "+u.getUname());
-	System.out.println("two");
 }
 else {
 		res.sendRedirect("index?msg=wrong credentials");
