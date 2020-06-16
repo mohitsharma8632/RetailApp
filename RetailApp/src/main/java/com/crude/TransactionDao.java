@@ -1,6 +1,5 @@
 package com.crude;
 
-import java.lang.annotation.Target;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,12 +20,6 @@ public class TransactionDao {
 	static Statement statement = null;
 	static PreparedStatement preparedStatement = null;
 	
-	
-	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-    Date datenow = new Date();
-    String[] s=dateFormat.format(datenow).split("/");
-    String date=s[0]+s[1]+s[2];
-   
 
 public static boolean transfer(Transaction t) {
 	boolean flag = false;
@@ -131,6 +124,7 @@ public static List<Transaction> tlist (int accountid) {
 			transaction.setSourceaccounttype(resultSet.getString(2));
 			transaction.setAmount(resultSet.getInt(3));
 			String date=resultSet.getInt(4)+"";
+			date=date.substring(0,4)+"/"+date.substring(4,6)+"/"+date.substring(6,8);
 			transaction.setDate(date);
 			transaction.setTargetaccountid(resultSet.getInt(5));
 			transaction.setTargetaccounttype(resultSet.getString(6));

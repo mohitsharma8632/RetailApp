@@ -1,6 +1,9 @@
 package com.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +18,11 @@ import com.pojo.Transaction;
 public class MoneyPageController {
 
 	@RequestMapping("Deposit")
-	public ModelAndView DepositScreen(String msg,Account acc) {
+	public ModelAndView DepositScreen(String msg,Account acc,HttpServletResponse r) throws IOException {
 		acc=AccountDao.getaccountbyid(acc);
+		if(acc==null) {
+		r.sendRedirect("Home?msg=Account with given id  was not found");
+		}
 			ModelAndView mv=new ModelAndView();
 		mv.addObject("msg", msg);
 		mv.addObject("a", acc);
@@ -25,8 +31,11 @@ public class MoneyPageController {
 	}
 	
 	@RequestMapping("Withdraw")
-	public ModelAndView WithdrawScreen(String msg,Account acc) {
+	public ModelAndView WithdrawScreen(String msg,Account acc,HttpServletResponse r) throws IOException {
 	acc=AccountDao.getaccountbyid(acc);
+	if(acc==null) {
+		r.sendRedirect("Home?msg=Account with given id   was not found");
+		}
 		ModelAndView mv=new ModelAndView();
 	mv.addObject("msg", msg);
 	mv.addObject("a", acc);

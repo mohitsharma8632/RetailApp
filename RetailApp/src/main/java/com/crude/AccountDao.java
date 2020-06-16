@@ -145,8 +145,10 @@ public static Account getaccountbycustomerid (Account a) {
 public static boolean accountwithdraw(int accountid,int amount) {
 	Account a=new Account();
 	a.setAccountid(accountid);
-	int balance=getaccountbyid(a).getBalance();
-	
+	a=getaccountbyid(a);
+	if(a==null) {
+		return false;}
+	int balance=a.getBalance();
 	boolean flag = false;
 	if(balance>amount) {
 	balance-=amount;
@@ -170,7 +172,11 @@ public static boolean accountwithdraw(int accountid,int amount) {
 public static boolean accountdeposit(int accountid,int amount) {
 	Account a=new Account();
 	a.setAccountid(accountid);
-	int balance=getaccountbyid(a).getBalance();
+	a=getaccountbyid(a);
+	if(a==null) {
+		return false;
+	}
+	int balance=a.getBalance();
 	balance+=amount;
 	boolean flag = false;
 	try {
