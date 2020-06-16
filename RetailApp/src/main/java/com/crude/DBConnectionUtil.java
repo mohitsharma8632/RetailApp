@@ -10,9 +10,9 @@ public class DBConnectionUtil {
 	
 	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	
-	private static final String USERNAME = "dbuser";
+	private static final String USERNAME = "root";
 	
-	private static final String PASSWORD = "user";
+	private static final String PASSWORD = "saketmysql";
 	
 	private static Connection connection = null;
 	

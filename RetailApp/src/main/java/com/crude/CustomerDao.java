@@ -31,8 +31,14 @@ public static int create(Customer c) {
 		preparedStatement.setString(2, c.getName());
 		preparedStatement.setInt(3, c.getAge());
 		preparedStatement.setString(4, c.getAddress()+","+c.getCity()+","+c.getState());
+		Customer ca=new Customer();
+		ca.setSsnid(c.getSsnid());
+ca=getcustomerbyssnid(ca);
+if(ca!=null)
+{	return 0;
+}else{
 		f = preparedStatement.executeUpdate();
-		if(f==1) {
+}if(f==1) {
 			return getcustomerbyssnid(c).getCustomerid();
 		}
 		
