@@ -29,25 +29,25 @@
                <div class="offset-md-3 col-md-6">
 					<form class="mt-3" action="DeleteCustomerAction" method="post">
                         <div class="form-group row">
-                              <label for="ssnId" class="col-12 col-md-4 col-form-label">SSN Id:</label>
-                              <input type="text" class="form-control col-md-8" id="ssnId" name="ssnid"  value="${c.ssnid }" disabled/>
+                              <label for="ssnId" class="col-12 col-md-4 col-form-label">SSN Id: ${c.ssnid }</label>
+                              <input type="hidden" class="form-control col-md-8" id="ssnId" name="ssnid"  value="${c.ssnid }" />
                         </div>
                         <div class="form-group row">
-                              <label for="customerId" class="col-12 col-md-4 col-form-label">Customer Id:</label>
-                              <input type="number" class="form-control col-md-8" id="customerId" name="customerid"   value="${c.customerid }" disabled />
+                              <label for="customerId" class="col-12 col-md-4 col-form-label">Customer Id: ${c.customerid }</label>
+                              <input type="hidden" class="form-control col-md-8" id="customerId" name="customerid"   value="${c.customerid }"  />
                         </div>
                         <div class="form-group row">
-                                    <label for="name" class="col-12 col-md-4 col-form-label">Customer Name:</label>
-                                    <input type="text" class="form-control col-12 col-md-8" id="name" name="name"   value="${c.name }" disabled />
+                                    <label for="name" class="col-12 col-md-4 col-form-label">Customer Name: ${c.name }</label>
+                                    <input type="hidden" class="form-control col-12 col-md-8" id="name" name="name"   value="${c.name }"  />
 
                         </div>
                         <div class="form-group row">
-                                    <label for="age" class="col-12 col-md-4 col-form-label">Age:</label>
-                                    <input type="number" class="form-control col-12 col-md-8" id="age" name="age"   value="${c.age }" disabled />
+                                    <label for="age" class="col-12 col-md-4 col-form-label">Age: ${c.age }</label>
+                                    <input type="hidden" class="form-control col-12 col-md-8" id="age" name="age"   value="${c.age }"  />
                         </div>
                         <div class="form-group row">
-                                    <label for="address" class="col-12 col-md-4 col-form-label">Address:</label>
-                                    <input type="text" class="form-control col-12 col-md-8" id="address" name="address"   value="${c.address }" disabled />
+                                    <label for="address" class="col-12 col-md-4 col-form-label">Address: ${c.address }</label>
+                                    <input type="hidden" class="form-control col-12 col-md-8" id="address" name="address"   value="${c.address }"  />
                         </div>
     			        <div class="form-group clearfix">
 						  <button type="button" class="btn btn-dark float-left">Confirm Delete</button>

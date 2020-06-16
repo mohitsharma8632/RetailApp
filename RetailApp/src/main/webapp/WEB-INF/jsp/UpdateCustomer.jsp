@@ -40,13 +40,13 @@
 					<form class="mt-3" action="CreateAccountAction" method="post">
 				            <div class="form-group row">
 				            	<label for="ssnId" class="col-12 col-md-4 col-form-label">Customer SSN ID</label>
-				            	<!-- value to be displayed from obtained java object and input filed is disabled -->
-				            	<input type="text" class="form-control col-md-8" id="ssnId" name="ssnid"  value="${c.ssnid }" disabled/>
+				            	<!-- value to be displayed from obtained java object and input filed is disabled -->${c.ssnid }
+				            	<input type="hidden" class="form-control col-md-8" id="ssnId" name="ssnid"  value="${c.ssnid }" />
 				            </div>
 				            <div class="form-group row">
 				            	<label for="cId" class="col-12 col-md-4 col-form-label">Customer ID</label>
-				            	<!-- value to be displayed from obtained java object and input filed is disabled -->
-				              	<input type="text" class="form-control col-md-8" id="cId" name="customerid"   value="${c.customerid }" disabled/>
+				            	<!-- value to be displayed from obtained java object and input filed is disabled -->${c.customerid }
+				              	<input type="hidden" class="form-control col-md-8" id="cId" name="customerid"   value="${c.customerid }" />
 				            </div>
 				            <div class="form-group row">
 				            	<label for="oldCustomerName" class="col-12 col-md-4 col-form-label">Old Customer Name</label>

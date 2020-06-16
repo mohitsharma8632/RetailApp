@@ -30,12 +30,12 @@
                <div class="offset-md-3 col-md-6">
 					<form class="mt-3" action="DeleteAccountAction" method="post">
 				            <div class="form-group row">
-				            	<label for="accountId" class="col-12 col-md-4 col-form-label">Account Id</label>
-				              	<input type="number" class="form-control col-md-8" id="accountId" name="accountid"  value="${a.accountid }" disabled/>
+				            	<label for="accountId" class="col-12 col-md-4 col-form-label">Account Id: ${a.accountid }</label>
+				              	<input type="hidden" class="form-control col-md-8" id="accountId" name="accountid"  value="${a.accountid }" />
 				            </div>
 				            <div class="form-group row">
-				            	<label for="accountType" class="col-12 col-md-4 col-form-label">Account Type</label>
-				              	<input type="text" class="form-control col-md-8"  id="accountType" name="accountype" value="${a.accountype }" disabled/>
+				            	<label for="accountType" class="col-12 col-md-4 col-form-label">Account Type: ${a.accountype }</label>
+				              	<input type="hidden" class="form-control col-md-8"  id="accountType" name="accountype" value="${a.accountype }" />
 				            </div>
 				            
 				            <div class="form-group row">

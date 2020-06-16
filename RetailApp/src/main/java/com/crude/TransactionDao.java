@@ -8,8 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import com.pojo.Customer;
 import com.pojo.Transaction;
 
 public class TransactionDao {
@@ -32,7 +35,7 @@ public static boolean transfer(Transaction t) {
     String[] s=dateFormat.format(datenow).split("/");
     String date=s[0]+s[1]+s[2];
 	try {
-		String sql = "INSERT INTO tbl_transaction VALUES(?,?,?,?,?,?,?,Null)";
+		String sql = "INSERT INTO transaction VALUES(?,?,?,?,?,?,?,Null)";
 		connection = DBConnectionUtil.openConnection();
 		preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, t.getSourceaccountid());
@@ -65,7 +68,7 @@ public static boolean deposit(Transaction t) {
     String date=s[0]+s[1]+s[2];
 	boolean flag = false;
 	try {
-		String sql = "INSERT INTO tbl_transaction VALUES(?,?,?,?,Null,Null,?,Null)";
+		String sql = "INSERT INTO transaction VALUES(?,?,?,?,Null,Null,?,Null)";
 		connection = DBConnectionUtil.openConnection();
 		preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, t.getSourceaccountid());
@@ -91,7 +94,7 @@ public static boolean withdraw(Transaction t) {
     String date=s[0]+s[1]+s[2];
 	boolean flag = false;
 	try {
-		String sql = "INSERT INTO tbl_transaction VALUES(?,?,?,?,Null,Null,?,Null)";
+		String sql = "INSERT INTO transaction VALUES(?,?,?,?,Null,Null,?,Null)";
 		connection = DBConnectionUtil.openConnection();
 		preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, t.getSourceaccountid());
@@ -105,8 +108,42 @@ public static boolean withdraw(Transaction t) {
 	}catch(SQLException ex) {
 		ex.printStackTrace();
 	}
+	System.out.println(flag);
 	return flag;
 
 	}
+
+public static List<Transaction> tlist (int accountid) {
+	
+	List<Transaction> list = null;
+	Transaction transaction = null;
+	
+	try {
+		
+		list = new ArrayList<Transaction>();
+		String sql = "SELECT * FROM transaction where sourceaccountid="+accountid;
+		connection = DBConnectionUtil.openConnection();
+		statement = connection.createStatement();
+		resultSet = statement.executeQuery(sql);
+		while(resultSet.next()) {
+			transaction = new Transaction();
+			transaction.setSourceaccountid(resultSet.getInt(1));
+			transaction.setSourceaccounttype(resultSet.getString(2));
+			transaction.setAmount(resultSet.getInt(3));
+			String date=resultSet.getInt(4)+"";
+			transaction.setDate(date);
+			transaction.setTargetaccountid(resultSet.getInt(5));
+			transaction.setTargetaccounttype(resultSet.getString(6));
+			transaction.setType(resultSet.getString(7));
+			transaction.setTransactionid(resultSet.getInt(8));
+			list.add(transaction);
+		}
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}
+	return list;
+	
+	}
+
 
 }

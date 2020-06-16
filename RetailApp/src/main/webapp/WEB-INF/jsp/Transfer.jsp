@@ -29,7 +29,7 @@
 	</style>
 </head>
 <body>
-	<%@ include file="HeaderAccount.jsp" %>
+	<%@ include file="Header.jsp" %>
 	<div style='backgroundColor: "lightgrey"'>
 		
                 <div class="container justify-content-center pt-3" >
@@ -40,12 +40,12 @@
                             <form class="offset-md-3" action="TransferAction" method="post"> 
                                 <div class="form-group row">
                                     <label for="customerId" class="col-12 col-md-4 col-form-label">Customer Id</label>
-                                    <input type="text" class="form-control col-md-8" id="customerId" name="sourceaccountid" />
+                                    <input type="text" class="form-control col-md-8" id="customerId" name="sourceaccountid" required/>
 
                                 </div>
                                 <div class="form-group row">
                                     <label for="sourceAccountType" class="col-12 col-md-4 col-form-label">Source Account Type</label>
-                                    <input type="text" class="form-control col-12 col-md-8" id="sourceAccountType" name="sourceaccounttype" />
+                                    <input type="text" class="form-control col-12 col-md-8" id="sourceAccountType" name="sourceaccounttype" required/>
 
                                 </div>
                                 <div class="form-group row">

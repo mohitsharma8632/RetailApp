@@ -29,7 +29,7 @@
 	</style>
 </head>
 <body>
-	<%@ include file="HeaderAccount.jsp" %>
+	<%@ include file="Header.jsp" %>
 	<div style='backgroundColor: "lightgrey"'>
 		
 		<div class="container justify-content-center pt-3">
@@ -54,7 +54,7 @@
 					<tr>
 						<td>Balance</td>
 						<td class="pl-2"> : </td>
-						<td class="pl-2">a${a.balance }</td>
+						<td class="pl-2">${a.balance }</td>
 					</tr>
 					<tr></tr>
 					<tr>
@@ -63,8 +63,8 @@
 						<td><input type="number" class="form-control" id="withdrawAmount" name="amount" style="height:30px"/></td>
 					</tr>
 					<tr>
-						<td><input type="hidden" name="sourceaccountid"  value="${a.accountid }" disabled/>
-						<input type="hidden"  name="sourceaccounttype"  value="${a.accountype }" disabled />
+						<td><input type="hidden" name="sourceaccountid"  value="${a.accountid }" />
+						<input type="hidden"  name="sourceaccounttype"  value="${a.accountype }"  />
 						</td>
 						<td></td>
 						<td><input type="submit" class="btn btn-dark btn-outline-warning btn-lg" value="Submit"/></td>

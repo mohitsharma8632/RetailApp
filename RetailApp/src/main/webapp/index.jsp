@@ -92,7 +92,8 @@ input, button {
 
 <div class="container">
   <form action="LoginAction" method="post" class="form sign-in">
-    <h2>Log in</h2>
+    <h2>${msg }</h2>
+<br>    <h2>Log in</h2>
     <label> <span></span> <input type="text" placeholder="User Name" name="uname" required/>  </label>
     <label> <span></span> <input type="password" placeholder="Password" name="password" required/> </label>
     <input type="submit" class="submit"  value ="log in">

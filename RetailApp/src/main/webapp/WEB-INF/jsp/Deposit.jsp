@@ -29,7 +29,7 @@
 	</style>
 </head>
 <body>
-	<%@ include file="HeaderAccount.jsp" %>
+	<%@ include file="Header.jsp" %>
 	<div style='backgroundColor: "lightgrey"'>
 		
 		<div class="container justify-content-center pt-3">

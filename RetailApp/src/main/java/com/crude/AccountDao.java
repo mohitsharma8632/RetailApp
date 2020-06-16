@@ -155,12 +155,14 @@ public static boolean accountwithdraw(int accountid,int amount) {
 		connection = DBConnectionUtil.openConnection();
 		preparedStatement = connection.prepareStatement(sql);
 		int i=preparedStatement.executeUpdate();
-		if(i>1)
+		System.out.println(i);
+		if(i>0)
 		flag = true;
 	}catch(SQLException e) {
 		e.printStackTrace();
 	}
 	}
+	System.out.println(flag);
 	return flag;
 	}
 

@@ -27,13 +27,13 @@
 <body>
 	<%@ include file="Header.jsp" %>
 	<div id="container" class="container mt-40">
-		<p class="pt-10">Either one of the details should be entered</p><br/><br/>
+		<p class="pt-10">Account Statement</p><br/><br/>
 		<div class="row">
           <div class="offset-md-3 col-md-6">
-			<form action="${operation}" method="post">
+			<form action="Statement" method="post">
 				<div class="form-group row">
 					<label for="accountid" class="col-12 col-md-4 col-form-label">Account id</label>
-					<input type="number" class="form-control col-md-8" name="accountid" id="accountid" />
+					<input type="number" class="form-control col-md-8" name="accountid" id="accountid" value=${accountid }/>
 				</div><br/>
 				<br/>
 				<div class="form-group row pt-3">
@@ -42,6 +42,36 @@
 			</form>
 		  </div>
 		</div>
+	</div>
+	
+	
+	<c:if test="${i > 0}">
+	<div class="container">
+		<h4 class="justify-content-center"></h4>
+		<table align="center" border="1">
+				<tr class=" bg-warning">
+					<th>Source Account ID</th>
+					<th>Source Account type</th>
+					<th>Amount</th>
+					<th>Date</th>
+					<th>type</th>
+					<th>Target Account id</th>
+					<th>Target Account type</th>		
+				</tr>
+					</c:if> 
+			<c:forEach items="${tlist}" var="t">
+				<tr>
+					<td>${t.sourceaccountid}</td>
+					<td>${t.sourceaccounttype }</td>
+					<td>${t.amount}</td>
+					<td>${t.date} </td>
+					<td>${t.type}</td>
+					<td>${t.targetaccountid}</td>
+					<td>${t.targetaccounttype}</td>
+				
+				</tr>
+			</c:forEach>
+		</table>
 	</div>
 	
 	<%@ include file="Footer.jsp" %>   
