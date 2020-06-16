@@ -49,10 +49,9 @@
                                     <label for="address" class="col-12 col-md-4 col-form-label">Address: ${c.address }</label>
                                     <input type="hidden" class="form-control col-12 col-md-8" id="address" name="address"   value="${c.address }"  />
                         </div>
-    			        <div class="form-group clearfix">
-						  <button type="button" class="btn btn-dark float-left">Confirm Delete</button>
-						  <button type="button" class="btn btn-light float-right">Cancel</button>
-						</div> 
+    			        <div class="form-group row">
+				            	<input type="submit" class="btn btn-dark btn-outline-warning btn-lg offset-md-4" value="Update"/>
+				            </div>       
  		 			</form>
 		        </div>
 		    </div>

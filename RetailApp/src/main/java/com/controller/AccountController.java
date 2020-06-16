@@ -21,7 +21,7 @@ public void CreateAccountAction(Account a,HttpServletResponse r) throws IOExcept
 		r.sendRedirect("Home?msg=Account created with id "+aid);
 	}
 	else {
-			r.sendRedirect("CreateAcccount?msg=Account creation failed");
+			r.sendRedirect("CreateAccount?msg=Account creation failed");
 	}
 }
 

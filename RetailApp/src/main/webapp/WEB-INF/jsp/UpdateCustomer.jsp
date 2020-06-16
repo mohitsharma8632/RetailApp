@@ -37,7 +37,7 @@
 			<h4 class="text-center"><strong>Update Customer</strong></h4>
 			<div class="row">
                <div class="offset-md-3 col-md-6">
-					<form class="mt-3" action="CreateAccountAction" method="post">
+					<form class="mt-3" action="UpdateCustomerAction" method="post">
 				            <div class="form-group row">
 				            	<label for="ssnId" class="col-12 col-md-4 col-form-label">Customer SSN ID</label>
 				            	<!-- value to be displayed from obtained java object and input filed is disabled -->${c.ssnid }
