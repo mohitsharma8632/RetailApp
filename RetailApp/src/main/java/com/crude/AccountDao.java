@@ -21,23 +21,40 @@ public class AccountDao {
 	static Statement statement = null;
 	static PreparedStatement preparedStatement = null;
 
-
 public static int create(Account a) {
 	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
     Date datenow = new Date();
     String s=dateFormat.format(datenow);
 	int f = 0;
 	try {
-		String sql = "INSERT INTO account VALUES(?,?,?,?,Null)";
+		Customer c=new Customer();
+		c.setCustomerid(a.getCustomerid());
+		c=CustomerDao.getcustomerbycustomerid(c);
+		if(c==null)
+		{
+			return 0;
+		}
+		
+			Account acc=new Account();
+			acc.setCustomerid(a.getCustomerid());
+		acc.setAccountype(a.getAccountype());
+			acc=AccountDao.getaccountbycustomeridtype(acc);
+			if(acc!=null) {
+					return 0;
+				}
+			
+		String sql = "INSERT INTO account VALUES(?,?,?,?,?,?,Null)";
 		connection = DBConnectionUtil.openConnection();
 		preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, a.getCustomerid());
 		preparedStatement.setString(2, a.getAccountype());
 		preparedStatement.setInt(3, a.getBalance());
 		preparedStatement.setString(4, s);
+		preparedStatement.setString(5, a.getStatus());
+		preparedStatement.setString(6, "account creation complete");
 		f =preparedStatement.executeUpdate();
 		if(f==1) {
-			return getaccountbycustomerid(a).getAccountid();
+			return getaccountbycustomeridtype(a).getAccountid();
 		}
 	}catch(SQLException ex) {
 		ex.printStackTrace();
@@ -79,7 +96,9 @@ public static List<Account> status () {
 			account.setAccountype(resultSet.getString(2));
 			account.setBalance(resultSet.getInt(3));
 			account.setDate(resultSet.getString(4));
-			account.setAccountid(resultSet.getInt(5));
+			account.setStatus(resultSet.getString(5));
+			account.setMessage(resultSet.getString(6));
+			account.setAccountid(resultSet.getInt(7));
 			list.add(account);
 		}
 	}catch(SQLException e) {
@@ -105,7 +124,9 @@ if(resultSet.next()) {
 			account.setAccountype(resultSet.getString(2));
 			account.setBalance(resultSet.getInt(3));
 			account.setDate(resultSet.getString(4));
-			account.setAccountid(resultSet.getInt(5));
+			account.setStatus(resultSet.getString(5));
+			account.setMessage(resultSet.getString(6));
+			account.setAccountid(resultSet.getInt(7));
 }
 	}catch(SQLException e) {
 		e.printStackTrace();
@@ -131,7 +152,9 @@ public static Account getaccountbycustomerid (Account a) {
 			account.setAccountype(resultSet.getString(2));
 			account.setBalance(resultSet.getInt(3));
 			account.setDate(resultSet.getString(4));
-			account.setAccountid(resultSet.getInt(5));
+			account.setStatus(resultSet.getString(5));
+			account.setMessage(resultSet.getString(6));
+			account.setAccountid(resultSet.getInt(7));
 }
 
 	}catch(SQLException e) {
@@ -172,7 +195,6 @@ public static boolean accountwithdraw(int accountid,int amount) {
 public static boolean accountdeposit(int accountid,int amount) {
 	Account a=new Account();
 	a.setAccountid(accountid);
-	System.out.println(accountid);
 	a=getaccountbyid(a);
 	
 	if(a==null) {
@@ -193,5 +215,31 @@ public static boolean accountdeposit(int accountid,int amount) {
 	}
 	return flag;
 	}
+public static Account getaccountbycustomeridtype (Account a) {
+	
+	Account account = null;
+	
+	try {
+		
+		String sql = "SELECT * FROM account where customerid="+a.getCustomerid()+" AND accounttype='"+a.getAccountype()+"'";                            
+		connection = DBConnectionUtil.openConnection();
+		statement = connection.createStatement();
+		resultSet = statement.executeQuery(sql);
+		if(resultSet.next()) {
+			account = new Account();
+			account.setCustomerid(resultSet.getInt(1));
+			account.setAccountype(resultSet.getString(2));
+			account.setBalance(resultSet.getInt(3));
+			account.setDate(resultSet.getString(4));
+			account.setStatus(resultSet.getString(5));
+			account.setMessage(resultSet.getString(6));
+			account.setAccountid(resultSet.getInt(7));
+}
 
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}
+	return account;
+	
+	}
 }

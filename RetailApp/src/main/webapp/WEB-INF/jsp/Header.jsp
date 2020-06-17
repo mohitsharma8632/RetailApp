@@ -49,7 +49,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="statusDetails">
                                     <a class="dropdown-item" href="CustomerStatus">Customer Status</a>
-                                    <a class="dropdown-item" href="AccountStatus">Account action</a>
+                                    <a class="dropdown-item" href="AccountStatus">Account Status</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">

@@ -63,7 +63,7 @@
 						<td><input type="number" class="form-control" id="amount" name="amount" style="height:30px"/></td>
 					</tr>
 					<tr>
-						<td><input type="hidden" name="sourceaccountid"  value="${a.customerid }"/>
+						<td><input type="hidden" name="sourceaccountid"  value="${a.accountid }"/>
 						<input type="hidden"  name="sourceaccounttype"  value="${a.accountype }" />
 						</td>
 						<td></td>

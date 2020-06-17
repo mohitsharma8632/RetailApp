@@ -28,7 +28,7 @@
 <body>
 	<%@ include file="Header.jsp" %>
 	<div class="container">
-		<h4 class="justify-content-center">Customer Status</h4>
+		<h4 class="justify-content-center">Account Status</h4>
 		<table align="center" border="1">
 				<tr class=" bg-warning">
 					<th>Customer ID</th>
@@ -37,18 +37,16 @@
 					<th>Account Status</th>
 					<th>Message</th>
 					<th>Last Updated</th>
-					<th>Operations</th>		
+						
 				</tr>
 			<c:forEach items="${alist}" var="account">
 				<tr>
 					<td>${account.customerid}</td>
 					<td>${account.accountid }</td>
 					<td>${account.accountype }</td>
-					<td>status </td>
-					<td>message</td>
-					<td>lastUpdated</td>
-					<td><a href="#">Refresh</a></td>
-					
+					<td>${account.status } </td>
+					<td>${account.message }</td>
+					<td>${account.date}</td>
 				</tr>
 			</c:forEach>
 		</table>

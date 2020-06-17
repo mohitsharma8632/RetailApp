@@ -9,8 +9,7 @@
     if(session.getAttribute("uname")==null){  
     	response.sendRedirect("");
     }  
-    
-    
+        
     %>
 
 <!DOCTYPE html>
@@ -35,19 +34,17 @@
 					<th>Customer SSN ID</th>
 					<th>Status</th>
 					<th>Message</th>
-					<th>Last Updated</th>
-					<th>Operations</th>		
+					<th>Last Updated</th>	
 					<th>View Profile</th>	
 				</tr>
 			<c:forEach items="${clist}" var="customer">
 				<tr>
 					<td>${customer.customerid}</td>
 					<td>${customer.ssnid }</td>
-					<td>status </td>
-					<td>message</td>
-					<td>lastUpdated</td>
-					<td><a href="#">Refresh</a></td>
-					<td><a href="#">View Details</a></td>
+					<td>${customer.status} </td>
+					<td>${customer.message}</td>
+					<td>${customer.lastupdated}</td>
+					<td><a href="viewcustomer?customerid=${customer.customerid}">View Details</a></td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -6,6 +6,21 @@ public class Account {
 	private String accountype;
 	private int balance;
 	private String date;
+	private String status="Active";
+	private String message;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
 	public int getCustomerid() {
 		return customerid;
 	}

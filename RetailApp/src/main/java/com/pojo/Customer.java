@@ -9,6 +9,27 @@ private int ssnid;
 	private String address;
 	private String state;
 	private String city;
+	private String status="Active";
+	private String message;
+	private String lastupdated;
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public String getLastupdated() {
+		return lastupdated;
+	}
+	public void setLastupdated(String lastupdated) {
+		this.lastupdated = lastupdated;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public int getSsnid() {
 		return ssnid;
 	}

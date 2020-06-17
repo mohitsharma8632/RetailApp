@@ -64,6 +64,18 @@ public class CustomerPageController {
 		mv.setViewName("CustomerSearch");
 		return mv;
 	}
+	@RequestMapping("viewcustomer")
+	public ModelAndView view(String msg,Customer cus,HttpServletResponse r) throws IOException {
+		cus =CustomerDao.getcustomerbycustomerid(cus);
+		if(cus==null) {
+			r.sendRedirect("Home?msg=Customer with given id   was not found");
+			}
+			ModelAndView mv=new ModelAndView();
+		mv.addObject("msg", msg);
+		mv.addObject("c", cus);
+	mv.setViewName("viewcustomer");
+	return mv;
+	}
 	
 	
 }
