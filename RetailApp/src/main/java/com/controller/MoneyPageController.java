@@ -65,6 +65,7 @@ if(a.getAccountid()!=0) {
 	mv.addObject("msg", msg);
 	mv.addObject("i", i);
 	mv.addObject("tlist", tlist);
+	mv.addObject("a",a);
 	mv.setViewName("Statement");
 	return mv;
 	}

@@ -46,6 +46,7 @@
 	
 	
 	<c:if test="${i > 0}">
+	<a href="pdfreport?accountid=${a.accountid }"><button type="button">Download as Pdf</button></a>
 	<div class="container">
 		<h4 class="justify-content-center"></h4>
 		<table align="center" border="1">
